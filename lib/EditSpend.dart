@@ -16,7 +16,7 @@ class _EditSpendState extends State<EditSpend> {
   bool _editing;
 
   String _oldName = "";
-  double _oldPrice = 0;
+  String _oldPrice = "";
   DateTime _oldDate = DateTime.now();
   bool _toEdit = false;
   int _id;
@@ -29,7 +29,7 @@ class _EditSpendState extends State<EditSpend> {
       {
         Spends spend = _model.getSpend(_index);
         _oldName = spend.name;
-        _oldPrice = spend.price;
+        _oldPrice = spend.price.toString();
         _oldDate = spend.date;
         _toEdit = true;
         _id = spend.id;
@@ -46,7 +46,7 @@ class _EditSpendState extends State<EditSpend> {
                       initialValue: _oldName,
                       decoration: InputDecoration(
                         icon: Icon(Icons.title),
-                        hintText: 'Name of your`s waste',
+                        hintText: 'Name of your waste',
                         labelText: 'Name'
                       ),
                       autovalidate: true,
@@ -63,7 +63,7 @@ class _EditSpendState extends State<EditSpend> {
                     initialValue: _oldPrice.toString(),
                     decoration: InputDecoration(
                         icon: Icon(Icons.monetization_on),
-                        hintText: 'Price of your`s waste',
+                        hintText: 'Price of your waste',
                         labelText: 'Price'
                     ),
                     autovalidate: true,
